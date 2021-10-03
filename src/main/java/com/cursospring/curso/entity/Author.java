@@ -1,6 +1,5 @@
 package com.cursospring.curso.entity;
 
-import jdk.jfr.DataAmount;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -12,7 +11,6 @@ import javax.persistence.*;
 @Builder // automatically produce the code required to have your class be instantiable with code
 @NoArgsConstructor
 @AllArgsConstructor
-
 @Entity  // author class is a entity
 public class Author {
 
