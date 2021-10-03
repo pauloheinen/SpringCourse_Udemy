@@ -1,27 +1,29 @@
-package com.cursospring.curso.entity;
+package com.cursospring.curso.dto;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.NotNull;
+import javax.validation.constraints.Size;
+
 
 // lombok annotations
 @Data  // lombok getters and setters
 @Builder // automatically produce the code required to have your class be instantiable with code
 @NoArgsConstructor
 @AllArgsConstructor
-@Entity
-public class Author {
+public class AuthorDTO {
 
-    @Id  // pk
-    @GeneratedValue(strategy = GenerationType.IDENTITY)  // for every author add, auto increments
     private Long id;
 
-    @Column(nullable = false, unique = true)
+    @NotBlank
+    @Size(max = 30)
     private String name;
 
-    @Column(nullable = false)
+    @NotNull
+    @Size(max = 100)
     private Integer age;
 }

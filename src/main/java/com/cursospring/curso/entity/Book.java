@@ -8,6 +8,7 @@ import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
+// lombok annotations
 @Data  // lombok getters and setters
 @Builder // automatically produce the code required to have your class be instantiable with code
 @NoArgsConstructor
