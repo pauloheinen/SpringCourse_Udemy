@@ -1,4 +1,4 @@
-package com.cursospring.curso;
+package com.cursospring.curso.dto;
 
 
 import lombok.Builder;
