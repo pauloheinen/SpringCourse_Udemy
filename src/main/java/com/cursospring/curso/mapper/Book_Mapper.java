@@ -1,6 +1,5 @@
 package com.cursospring.curso.mapper;
 
-
 import com.cursospring.curso.dto.BookDTO;
 import com.cursospring.curso.entity.Book;
 import org.mapstruct.Mapper;

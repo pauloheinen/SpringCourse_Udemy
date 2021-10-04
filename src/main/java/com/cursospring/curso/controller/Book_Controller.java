@@ -6,7 +6,6 @@ import com.cursospring.curso.exception.BookNotFoundException;
 import com.cursospring.curso.service.Book_Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
-
 import javax.validation.Valid;
 
 @RestController  // API REST controller
