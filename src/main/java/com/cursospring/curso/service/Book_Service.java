@@ -3,11 +3,11 @@ package com.cursospring.curso.service;
 import com.cursospring.curso.dto.BookDTO;
 import com.cursospring.curso.dto.MessageResponseDTO;
 import com.cursospring.curso.entity.Book;
+import com.cursospring.curso.exception.BookNotFoundException;
 import com.cursospring.curso.mapper.Book_Mapper;
 import com.cursospring.curso.repository.Book_Repository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import java.util.Optional;
 
 
 @Service  // class to
@@ -30,10 +30,12 @@ public class Book_Service {
                 .build();
     }
 
-    public BookDTO findById(Long id){
-        Optional<Book> optionalbook = book_repository.findById(id);
-        System.out.println("Book : " + optionalbook.get());
-        return book_mapper.toDTO(optionalbook.get());
+    public BookDTO findById(Long id) throws BookNotFoundException {
+        Book book = book_repository.findById(id).orElseThrow(() -> new BookNotFoundException(id){
+
+        });
+
+        return book_mapper.toDTO(book);
 
     }
 

@@ -2,6 +2,7 @@ package com.cursospring.curso.controller;
 
 import com.cursospring.curso.dto.BookDTO;
 import com.cursospring.curso.dto.MessageResponseDTO;
+import com.cursospring.curso.exception.BookNotFoundException;
 import com.cursospring.curso.service.Book_Service;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
@@ -25,7 +26,7 @@ public class Book_Controller {
     }
 
     @GetMapping("/{id}")
-    public BookDTO findById(@PathVariable Long id){
+    public BookDTO findById(@PathVariable Long id) throws BookNotFoundException {
         return book_service.findById(id);
     }
 }
