@@ -7,6 +7,7 @@ import com.cursospring.curso.mapper.Book_Mapper;
 import com.cursospring.curso.repository.Book_Repository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import java.util.Optional;
 
 
 @Service  // class to
@@ -21,12 +22,19 @@ public class Book_Service {
     }
 
     public MessageResponseDTO create(BookDTO bookDTO){
-        Book  booktosave = book_mapper.toModel(bookDTO);
+        Book booktosave = book_mapper.toModel(bookDTO);
 
         Book savedBook = book_repository.save(booktosave);
         return MessageResponseDTO.builder()
                 .message("Created Book with ID: " + savedBook.getId())
                 .build();
+    }
+
+    public BookDTO findById(Long id){
+        Optional<Book> optionalbook = book_repository.findById(id);
+        System.out.println("Book : " + optionalbook.get());
+        return book_mapper.toDTO(optionalbook.get());
 
     }
+
 }

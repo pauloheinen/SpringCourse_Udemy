@@ -4,10 +4,7 @@ import com.cursospring.curso.dto.BookDTO;
 import com.cursospring.curso.dto.MessageResponseDTO;
 import com.cursospring.curso.service.Book_Service;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 
@@ -25,5 +22,10 @@ public class Book_Controller {
     @PostMapping  // POST request
     public MessageResponseDTO create(@RequestBody @Valid BookDTO bookDTO){
         return book_service.create(bookDTO);
+    }
+
+    @GetMapping("/{id}")
+    public BookDTO findById(@PathVariable Long id){
+        return book_service.findById(id);
     }
 }
